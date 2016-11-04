@@ -8,19 +8,19 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 
-var admin = require('./routes/admin');
+//admin
+var admin = require('./routes/admin/index');
+var addNews = require('./routes/admin/addNews');
+var deleteNews = require('./routes/admin/deleteNews');
+var curNews = require('./routes/admin/curNews');
+var updateNews = require('./routes/admin/updateNews');
+
+//client
+var news = require('./routes/client/news');
+
 var reg = require('./routes/reg');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
-
-var news = require('./routes/news');
-var addNews = require('./routes/addNews');
-var deleteNews = require('./routes/deleteNews');
-var curNews = require('./routes/curNews');
-var updateNews = require('./routes/updateNews');
-
-
-
 
 var app = express();
 
