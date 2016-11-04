@@ -3,7 +3,7 @@
  */
 
 var mysql = require('mysql');
-var DBconfig = require('./DBconfig');
+var DBconfig = require('../../config/DBconfig');
 
 var pool = mysql.createPool({
     host: DBconfig.host,
@@ -55,7 +55,6 @@ Utils.queryData = function (sql, reqData, callback) {
             connection.query(sql, reqData, function (err, result) {
 
                 console.log("==queryData-result==：" + JSON.stringify(result));
-
                 connection.release();
                 callback(err, result);
             })
