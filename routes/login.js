@@ -40,7 +40,7 @@ router.post('/', function (req, res) {
             res.locals.username = userName;
             req.session.username = res.locals.username;
             console.log(req.session.username);
-            res.redirect('/admin');
+            res.redirect('/');
             return false;
         }
     });

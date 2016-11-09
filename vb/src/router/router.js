@@ -2,7 +2,7 @@
  * Created by CAN on 2016/11/9.
  */
 import React from 'react';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, browserHistory, hashHistory} from 'react-router';
 
 
 import HelloWorld from '../components/Home/HelloWorld';
@@ -12,7 +12,7 @@ var RouteConfig = React.createClass({
 
     render: function () {
         return (
-            <Router history={hashHistory}>
+            <Router history={browserHistory}>
                 <Route path='/'>
                     <IndexRoute component={HelloWorld}/>
                     <Route path="/" component={HelloWorld}/>

@@ -8,16 +8,7 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 
-//admin
-var admin = require('./routes/admin/index');
-var addNews = require('./routes/admin/addNews');
-var deleteNews = require('./routes/admin/deleteNews');
-var curNews = require('./routes/admin/curNews');
-var updateNews = require('./routes/admin/updateNews');
-
 //client
-var news = require('./routes/client/news');
-
 var reg = require('./routes/reg');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
@@ -43,18 +34,18 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
 
-app.use('/admin', admin);
+
 app.use('/reg', reg);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use('/news', news);
-app.use('/addNews', addNews);
-app.use('/deleteNews', deleteNews);
-app.use('/curNews', curNews);
-app.use('/updateNews', updateNews);
 
+app.use('*', routes);
+
+
+// app.get('/*', function(req, res) {
+//     res.sendfile('client/index.html');
+// });
 
 
 // catch 404 and forward to error handler
