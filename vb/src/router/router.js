@@ -17,6 +17,7 @@ var RouteConfig = React.createClass({
                     <IndexRoute component={HelloWorld}/>
                     <Route path="/" component={HelloWorld}/>
                     <Route path="/board" component={ArticleBoard}/>
+                    <Route path="/*" component={ArticleBoard}/>
                 </Route>
             </Router>
         )
