@@ -4,6 +4,7 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+npm-debug.log
 
 # Folder
 /node_modules/
