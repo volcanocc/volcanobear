@@ -5,7 +5,7 @@ var express = require('express'),
     router = express.Router(),
     User = require('../models/user.js'),
     crypto = require('crypto'),
-    TITLE_REG = '注册';
+    TITLE_REG = '新用户注册';
 
 router.get('/', function (req, res) {
     res.render('reg', {title: TITLE_REG});
