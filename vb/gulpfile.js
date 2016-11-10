@@ -27,10 +27,11 @@ var mocks = require('./mocks');
  */
 
 var src = {
-    html: "src/*.html",                               // html 文件
-    vendor: ["vendor/**/*", "bower_components/**/*"], // vendor 目录和 bower_components
-    styles: "src/styles/*.scss",                      // styles 目录下所有*.scss
-    assets: "assets/**/*"                             // 图片等应用资源
+    html: "src/*.html",                                   // html 文件
+    vendor: ["src/vendor/**/*", "bower_components/**/*"], // vendor 目录和 bower_components
+    styles: "src/styles/main.scss",                       // styles 目录下main.scss
+    assets: ["src/assets/**/*", "src/*.ico" ],            // 图片等应用资源
+    ico: "src/*.ico"                                      // ICO
 };
 
 var tmp = {
@@ -38,7 +39,8 @@ var tmp = {
     html: "tmp/",
     styles: "tmp/styles",
     vendor: "tmp/vendor",
-    assets: "tmp/assets"
+    assets: "tmp/assets",
+    ico: "tmp/"
 };
 
 var dist = {
@@ -46,7 +48,8 @@ var dist = {
     html: "dist/",
     styles: "dist/styles",
     vendor: "dist/vendor",
-    assets: "dist/assets"
+    assets: "dist/assets",
+    ico: "dist/"
 };
 
 /**
@@ -91,6 +94,11 @@ function copyVendor() {
 function copyAssets() {
     return gulp.src(src.assets)
         .pipe(gulp.dest(tmp.assets));
+}
+
+function copyIco() {
+    return gulp.src(src.ico)
+        .pipe(gulp.dest(tmp.ico));
 }
 
 /**
@@ -238,7 +246,7 @@ function watch() {
  */
 gulp.task("serve", gulp.series(
     clean,
-    gulp.parallel(copyAssets, copyVendor, html, styles, webpackDevelopment),
+    gulp.parallel(copyAssets, copyIco, copyVendor, html, styles, webpackDevelopment),
     connectServer,
     watch
 ));
@@ -248,7 +256,7 @@ gulp.task("serve", gulp.series(
  */
 gulp.task("build", gulp.series(
     clean,
-    gulp.parallel(copyAssets, copyVendor, html, styles, webpackProduction),
+    gulp.parallel(copyAssets, copyIco, copyVendor, html, styles, webpackProduction),
     cleanDist,
     copyTmp,
     function (done) {

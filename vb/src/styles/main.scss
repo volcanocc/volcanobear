@@ -1,16 +1,80 @@
 
-/**
- * ----------------------------------------------------
- * variable
- * ----------------------------------------------------
- */
-$primary-color: #e91409;
+@import "reset";
 
-body{
-    font-family: Helvetica, 'Microsoft YaHei', Arial, sans-serif;
+html {
+    font-size: 62.5%;
 }
 
-h1 {
-    color: $primary-color;
+body {
+    background: #fafafa;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.navbar-static-top {
+    margin-bottom: 19px;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 60px auto 0 auto;
+    background: #fff;
+    padding-bottom: 30px;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px #ccc;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
     font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin .auto {
+    padding-left: 20px;
+}
+
+.w-86 {
+    width: 86px;
 }
