@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var News = require('../../models/news.js');
+var News = require('../models/news.js');
 
 router.get('/', function (req, res) {
     News.getNewsList([], function (err, result) {

@@ -14,7 +14,7 @@ var RouteConfig = React.createClass({
 
     render: function () {
         return (
-            <Router history={browserHistory}>
+            <Router history={hashHistory}>
                 <Route path='/'>
                     <IndexRoute component={HelloWorld}/>
                     <Route path="/" component={HelloWorld}/>

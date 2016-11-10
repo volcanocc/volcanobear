@@ -6,12 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+// router
 var routes = require('./routes/index');
 
-//client
-var reg = require('./routes/reg');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
+var reg = require('./routes/reg');
+
+var news = require('./routes/news');
 
 var app = express();
 
@@ -20,7 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'vb/tmp', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'vb/dist', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -32,13 +34,20 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use(express.static(path.join(__dirname, 'vb/tmp')));
+app.use(express.static(path.join(__dirname, 'vb/dist')));
 
 
+app.use('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
+// router
 app.use('/reg', reg);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/news', news);
 
 app.use('*', routes);
 
@@ -73,6 +82,7 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
+
 
 
 module.exports = app;

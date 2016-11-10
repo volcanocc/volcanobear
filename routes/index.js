@@ -16,9 +16,11 @@ router.get('*', function (req, res) {
             res.redirect('/login');
             return false;
         }
+
+        res.render('index', {title: '首页'});
     }
 
-    res.render('index', {title: '首页'});
+
 });
 
 

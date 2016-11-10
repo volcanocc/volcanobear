@@ -30,7 +30,7 @@ var src = {
     html: "src/*.html",                                   // html 文件
     vendor: ["src/vendor/**/*", "bower_components/**/*"], // vendor 目录和 bower_components
     styles: "src/styles/main.scss",                       // styles 目录下main.scss
-    assets: ["src/assets/**/*", "src/*.ico" ],            // 图片等应用资源
+    assets: "src/assets/**/*",                            // 图片等应用资源
     ico: "src/*.ico"                                      // ICO
 };
 
@@ -246,7 +246,7 @@ function watch() {
  */
 gulp.task("serve", gulp.series(
     clean,
-    gulp.parallel(copyAssets, copyIco, copyVendor, html, styles, webpackDevelopment),
+    gulp.parallel(copyAssets, copyIco, html, copyVendor, styles, webpackDevelopment),
     connectServer,
     watch
 ));
@@ -256,7 +256,7 @@ gulp.task("serve", gulp.series(
  */
 gulp.task("build", gulp.series(
     clean,
-    gulp.parallel(copyAssets, copyIco, copyVendor, html, styles, webpackProduction),
+    gulp.parallel(copyAssets, copyIco, html, copyVendor, styles, webpackProduction),
     cleanDist,
     copyTmp,
     function (done) {
