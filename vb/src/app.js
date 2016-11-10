@@ -6,10 +6,6 @@ var ReactDOM = require('react-dom');
 var RouteConfig = require('./router/router');
 
 ReactDOM.render(
-    <div>
-        1232131
-        <RouteConfig/>
-    </div>
-    ,
+    <RouteConfig/>,
     document.getElementById('app')
 );

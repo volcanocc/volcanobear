@@ -8,6 +8,8 @@ import {Router, Route, IndexRoute, browserHistory, hashHistory} from 'react-rout
 import HelloWorld from '../components/Home/HelloWorld';
 import ArticleBoard from '../components/ArticleBoard/ArticleBoardWrap';
 
+import E404 from '../components/Other/E404';
+
 var RouteConfig = React.createClass({
 
     render: function () {
@@ -17,8 +19,8 @@ var RouteConfig = React.createClass({
                     <IndexRoute component={HelloWorld}/>
                     <Route path="/" component={HelloWorld}/>
                     <Route path="/board" component={ArticleBoard}/>
-                    <Route path="/*" component={ArticleBoard}/>
                 </Route>
+                <Route path="*" component={E404}/>
             </Router>
         )
     }
